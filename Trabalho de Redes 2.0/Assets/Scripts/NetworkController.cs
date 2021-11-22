@@ -20,12 +20,13 @@ public class NetworkController : MonoBehaviourPunCallbacks
     public static NetworkController instance;
 
     private void Awake() {
-        if(instance == null){
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }else{
-            Destroy(this.gameObject);
+        
+        if(instance != null){
+            Destroy(instance.gameObject);
         }
+
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start() {

@@ -953,6 +953,7 @@ MonoBehaviour:
   nomeSala: {fileID: 462604013}
   playerPrefabs:
   - {fileID: 7054391935517341822, guid: 52376f4ec4e19974197c39be86e2a26d, type: 3}
+  weaponName: 
   selectedPrefabID: 0
   ocp: 0
 --- !u!4 &726558710
