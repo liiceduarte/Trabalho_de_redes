@@ -45,6 +45,7 @@ public class CrownController : MonoBehaviour
 
     public void DropBall(){
         this.GetComponent<PhotonView>().RPC("BallDroped",RpcTarget.All);
+        GameController.instance.BallWasDroped();
     }
 
     [PunRPC]
