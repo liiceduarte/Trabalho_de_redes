@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 2109098509565131569}
   - component: {fileID: 7826352791394826579}
   - component: {fileID: 5178602582879690942}
+  - component: {fileID: 7891295825957769830}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -2224,6 +2225,20 @@ CapsuleCollider:
   m_Height: 1.5463152
   m_Direction: 1
   m_Center: {x: -0.0056277215, y: 0.738224, z: 0}
+--- !u!114 &7891295825957769830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054391935517341822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b40522e1198ba43987a32c18667ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4345340798207375550}
+  attackDelay: 2
 --- !u!1 &7092964364602084386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,7 +2837,8 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 40db3173a05ae3242b1c182a09b0a183, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
 --- !u!4 &8696727251390986236 stripped
 Transform:

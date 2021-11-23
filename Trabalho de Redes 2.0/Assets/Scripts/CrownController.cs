@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
+
 public class CrownController : MonoBehaviour
 {
     private Transform target;
@@ -18,12 +20,14 @@ public class CrownController : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
+        if(!other.gameObject.CompareTag("Player")) return;
+        
         PhotonView photonView = other.gameObject.GetComponent<PhotonView>();
         if(photonView.IsMine){ 
             if(!isCollected ){
                 isCollected = true;
                 target = other.transform;
-                this.GetComponent<PhotonView>().RPC("PlayerCollected",RpcTarget.All, photonView.ViewID);
+                this.GetComponent<PhotonView>().RPC("PlayerCollected",RpcTarget.All, photonView.Owner);
             }
         }
     }
@@ -33,11 +37,11 @@ public class CrownController : MonoBehaviour
     }
 
     [PunRPC]
-    void PlayerCollected(int pvID){
+    void PlayerCollected(Player owner){
         PhotonView[] obs = FindObjectsOfType<PhotonView>();
         PhotonView targetPlayer = null;
         foreach(PhotonView p in obs){
-            if(p.ViewID == pvID){
+            if(p.Owner == owner && p.gameObject.CompareTag("Player")){
                 target = p.gameObject.transform;
                 targetPlayer = p;
             }
@@ -46,6 +50,7 @@ public class CrownController : MonoBehaviour
             if(targetPlayer != null)
                 GameController.instance.PlayerHasTheBall(targetPlayer.Owner.ActorNumber);
         }
+        isCollected = true;
         ballCollider.enabled = false;
         ballRigidbody.isKinematic = true;
     }
@@ -55,6 +60,7 @@ public class CrownController : MonoBehaviour
         target = null;
         ballRigidbody.isKinematic = false;
         ballCollider.enabled = true;
+        isCollected = false;
         if(PhotonNetwork.IsMasterClient){
             ballRigidbody.AddForce(new Vector3(Random.Range(-1,1), Random.Range(-1,1), Random.Range(-1,1)).normalized * dropForce, ForceMode.Impulse);
         }

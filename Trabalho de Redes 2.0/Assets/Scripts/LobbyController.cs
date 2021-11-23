@@ -18,6 +18,11 @@ public class LobbyController : MonoBehaviour
                 CheckPlayersReady();
             }
         }
+
+        CrownController c = other.gameObject.GetComponent<CrownController>();
+        if(c != null){
+            c.DropBall();
+        }
     }
 
     private void OnTriggerExit(Collider other) {

@@ -43,6 +43,10 @@ public class GameController : MonoBehaviour
         pointTimer = 0;
     }
 
+    public void BallWasDroped(){
+        this.GetComponent<PhotonView>().RPC("BallDroped",RpcTarget.All);
+    }
+
     [PunRPC]
     void RPCUpdatePoints(int[] playerPoints){
         if(!PhotonNetwork.IsMasterClient){
@@ -53,5 +57,11 @@ public class GameController : MonoBehaviour
     [PunRPC]
     void UpdatePlayerWithBall(int id){
         playerWithBall = id;
+    }
+
+    [PunRPC]
+    void BallDroped(){
+        playerWithBall = -1;
+        pointTimer = 0;
     }
 }
