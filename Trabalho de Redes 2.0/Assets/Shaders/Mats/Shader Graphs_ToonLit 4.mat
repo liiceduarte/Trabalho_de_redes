@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Cel-shaded
-  m_Shader: {fileID: -6465566751694194690, guid: 1b6eddf47f152b54aa44d6909e8f62f8, type: 3}
-  m_ShaderKeywords: FRESNEL_ON
+  m_Name: Shader Graphs_ToonLit 4
+  m_Shader: {fileID: -6465566751694194690, guid: 0c608d58aad46d74aaa475594a68c983, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,15 +19,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlbedoTex:
+    - _Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _LightRamp:
-        m_Texture: {fileID: 2800000, guid: 94d059596754e4341a2e948a75abfceb, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalTex:
+    - _Texture2DAsset_030d49f65092d9839985773c5d927357_Out_0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -45,10 +41,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - FRESNEL: 1
-    - Vector1_E144C508: 0.218
-    - _RimStrength: 0.25
-    - _Smoothness: 0.5
+    - Vector1_70A5B2FC: 0.296
+    - Vector1_71F1DE00: 0.252
     m_Colors:
-    - _Tint: {r: 1, g: 0, b: 0, a: 1}
+    - Color_BB976349: {r: 0.058823533, g: 0.60784316, b: 0.9490197, a: 0}
   m_BuildTextureStacks: []
