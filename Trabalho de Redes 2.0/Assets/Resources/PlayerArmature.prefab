@@ -2149,12 +2149,21 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: MotionSpeed
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: AttackTrigger
+  - Type: 4
+    SynchronizeType: 2
+    Name: Victory
+  - Type: 4
+    SynchronizeType: 2
+    Name: Endgame
+  - Type: 9
+    SynchronizeType: 2
+    Name: TriggerFall
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
-  - SynchronizeType: 0
+  - SynchronizeType: 2
     LayerIndex: 1
 --- !u!54 &1448772779688281113
 Rigidbody:

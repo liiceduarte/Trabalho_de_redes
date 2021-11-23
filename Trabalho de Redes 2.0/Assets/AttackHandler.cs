@@ -10,12 +10,17 @@ public class AttackHandler : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] float attackDelay;
     [SerializeField] WeaponAnchor weaponAnchor;
+    public static AttackHandler instance;
     float attackTimer = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        if(GetComponent<PhotonView>().IsMine)
+        if(GetComponent<PhotonView>().IsMine){
             weaponAnchor.SetOwner(GetComponent<PhotonView>().Owner);
+            instance = this;
+        }
     }
 
     // Update is called once per frame
@@ -40,7 +45,9 @@ public class AttackHandler : MonoBehaviour
     }
 
     public void TakeHit(){
+        animator.ResetTrigger("TriggerFall");
         this.GetComponent<PhotonView>().RPC("PlayerHit",RpcTarget.All, this.GetComponent<PhotonView>().Owner.ActorNumber);
+        animator.SetTrigger("TriggerFall");
     }
 
     public void SpawnWeapon(GameObject prefab){
@@ -51,6 +58,16 @@ public class AttackHandler : MonoBehaviour
 
     public void UpdateWeapon(int weaponId){
         this.GetComponent<PhotonView>().RPC("SetWeapon",RpcTarget.All, weaponId, this.GetComponent<PhotonView>().Owner);
+    }
+
+    public void Victory(){
+        animator.SetBool("Victory", true);
+        animator.SetBool("Endgame", true);
+    }
+
+    public void Defeat(){
+        animator.SetBool("Victory", false);
+        animator.SetBool("Endgame", true);
     }
 
     IEnumerator Attack(){
@@ -71,8 +88,17 @@ public class AttackHandler : MonoBehaviour
 
     [PunRPC]
     public void PlayerHit(int playerId){
+        PhotonView[] views = FindObjectsOfType<PhotonView>();
+        foreach(PhotonView p in views){
+            if(p.gameObject.CompareTag("Player") && p.Owner.ActorNumber == playerId){
+                p.GetComponent<AttackHandler>().animator.ResetTrigger("TriggerFall");
+                p.GetComponent<AttackHandler>().animator.SetTrigger("TriggerFall");
+            }
+        }
+
         if(playerId == GameController.instance.PlayerWithBall()){
             CrownController.instance.DropBall();
         }
     }
+    
 }
