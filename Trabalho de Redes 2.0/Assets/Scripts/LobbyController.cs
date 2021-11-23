@@ -9,12 +9,19 @@ public class LobbyController : MonoBehaviour
     private int playersReady = 0;
     private bool roomReady = false;
     [SerializeField] private float timeUntilBegin = 5;
+    private List<GameObject> players;
     private float beginTimer = 0;
     private bool isLoadingScene = false;
+
+    private void Awake() {
+        players = new List<GameObject>();
+    }
     private void OnTriggerEnter(Collider other) {
         if(PhotonNetwork.IsMasterClient){ // somente no servidor é feita a verificação
             if(other.gameObject.CompareTag("Player")){
-                playersReady++;
+                if(players.IndexOf(other.gameObject) < 0){
+                    players.Add(other.gameObject);
+                }
                 CheckPlayersReady();
             }
         }
@@ -28,14 +35,14 @@ public class LobbyController : MonoBehaviour
     private void OnTriggerExit(Collider other) {
         if(PhotonNetwork.IsMasterClient){ // somente no servidor é feita a verificação
             if(other.gameObject.CompareTag("Player")){
-                playersReady--;
+                players.Remove(other.gameObject);
                 CheckPlayersReady();
             }
         }
     }
 
     private void CheckPlayersReady(){
-        roomReady = playersReady == PhotonNetwork.CurrentRoom.PlayerCount;
+        roomReady = players.Count == PhotonNetwork.CurrentRoom.PlayerCount;
         beginTimer = timeUntilBegin;
     }
     
