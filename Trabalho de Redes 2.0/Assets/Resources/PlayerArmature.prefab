@@ -2148,6 +2148,9 @@ MonoBehaviour:
   - Type: 1
     SynchronizeType: 2
     Name: MotionSpeed
+  - Type: 9
+    SynchronizeType: 0
+    Name: AttackTrigger
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
