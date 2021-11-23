@@ -38,6 +38,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public int PlayerWithBall(){
+        return playerWithBall;
+    }
+
     public void PlayerHasTheBall(int playerId){
         playerWithBall = playerId;
         pointTimer = 0;

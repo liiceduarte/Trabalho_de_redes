@@ -43,6 +43,8 @@ MonoBehaviour:
   - BallDroped
   - RPCUpdatePoints
   - UpdatePlayerWithBall
+  - SetWeapon
+  - PlayerHit
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

@@ -12,7 +12,7 @@ public class NetworkController : MonoBehaviourPunCallbacks
 
     [SerializeField] private TMP_InputField nomeJogador, nomeSala;
     [SerializeField] public GameObject[] playerPrefabs;
-    public string weaponName = "";
+    public int weaponId = 0;
 
     public int selectedPrefabID = 0;
     public int ocp;
@@ -20,7 +20,7 @@ public class NetworkController : MonoBehaviourPunCallbacks
     public static NetworkController instance;
 
     private void Awake() {
-        
+
         if(instance != null){
             Destroy(instance.gameObject);
         }
