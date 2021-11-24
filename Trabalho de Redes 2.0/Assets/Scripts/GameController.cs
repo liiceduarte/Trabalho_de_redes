@@ -10,7 +10,11 @@ public class GameController : MonoBehaviour
     private int playerWithBall = -1;
     public static GameController instance;
     [SerializeField] private float delayBetweenPoints = 2;
+    [SerializeField] private int scoreGoal = 3;
+    private bool victory = false;
+    private bool endGame = false;
     private float pointTimer = 0;
+    [SerializeField] float delayUntilReturnToLobby = 3;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,12 +30,19 @@ public class GameController : MonoBehaviour
             playerPoints = new int[PhotonNetwork.CurrentRoom.PlayerCount];
         }
         if(!PhotonNetwork.IsMasterClient) return;
+        if(endGame) return;
         
         if(playerWithBall >= 0){
             pointTimer += Time.deltaTime;
 
             if(pointTimer >= delayBetweenPoints){
                 playerPoints[playerWithBall-1]++;
+                if(playerPoints[playerWithBall-1] >= scoreGoal && PhotonNetwork.IsMasterClient){
+                    this.GetComponent<PhotonView>().RPC("PlayerWon",RpcTarget.All, playerWithBall);
+                    StartCoroutine("ReturnToLobby");
+                    endGame = true;
+                }
+
                 this.GetComponent<PhotonView>().RPC("RPCUpdatePoints",RpcTarget.Others, playerPoints);
                 pointTimer -= delayBetweenPoints;
             }
@@ -67,5 +78,24 @@ public class GameController : MonoBehaviour
     void BallDroped(){
         playerWithBall = -1;
         pointTimer = 0;
+    }
+
+    [PunRPC]
+    void PlayerWon(int playerId){
+        endGame = true;
+        Debug.Log(PhotonNetwork.CurrentRoom.GetPlayer(playerId).NickName + " Won!");
+
+        if(AttackHandler.instance.gameObject.GetComponent<PhotonView>().Owner.ActorNumber == playerId){
+            AttackHandler.instance.Victory();
+        }else{
+            AttackHandler.instance.Defeat();
+        }
+    }
+
+    IEnumerator ReturnToLobby(){
+        yield return new WaitForSeconds(delayUntilReturnToLobby);
+        if(PhotonNetwork.IsMasterClient){
+            PhotonNetwork.LoadLevel(1);
+        }
     }
 }
