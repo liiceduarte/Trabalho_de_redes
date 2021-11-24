@@ -3416,6 +3416,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5436754240037995685, guid: b4f6a971ec0c7a74c8d2af0dd78f2a7a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0efb0bf4356d4f346ae8bf4eefd0a36f, type: 2}
     - target: {fileID: 6547765209783586975, guid: b4f6a971ec0c7a74c8d2af0dd78f2a7a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3460,6 +3464,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6645117955278668737, guid: b4f6a971ec0c7a74c8d2af0dd78f2a7a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f54912148f2c6c4992139b6ab2e9dfa, type: 2}
+    - target: {fileID: 6850736775421526162, guid: b4f6a971ec0c7a74c8d2af0dd78f2a7a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0efb0bf4356d4f346ae8bf4eefd0a36f, type: 2}
+    - target: {fileID: 7782595899391911029, guid: b4f6a971ec0c7a74c8d2af0dd78f2a7a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0efb0bf4356d4f346ae8bf4eefd0a36f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f6a971ec0c7a74c8d2af0dd78f2a7a, type: 3}
 --- !u!1 &419498646
@@ -11308,7 +11324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1960962339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12387,10 +12403,10 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: 2
     m_CustomResolution: -1
-    m_Strength: 0.733
+    m_Strength: 0.777
     m_Bias: 0.125
     m_NormalBias: 0
     m_NearPlane: 0.2

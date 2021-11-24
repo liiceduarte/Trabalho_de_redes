@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_ToonLit 7
-  m_Shader: {fileID: -6465566751694194690, guid: 1b6eddf47f152b54aa44d6909e8f62f8, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 0c608d58aad46d74aaa475594a68c983, type: 3}
   m_ShaderKeywords: FRESNEL_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 398e2aa5b6132c1428aea67ce16f2047, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_030d49f65092d9839985773c5d927357_Out_0:
@@ -55,14 +55,14 @@ Material:
     m_Floats:
     - FRESNEL: 1
     - Smoothness_1: 0
-    - Vector1_70A5B2FC: 0.296
-    - Vector1_71F1DE00: 0.231
-    - Vector1_E144C508: 0.355
+    - Vector1_70A5B2FC: 0.434
+    - Vector1_71F1DE00: 0.252
+    - Vector1_E144C508: 0.832
     - _RimStrength: 0.66
     - _Smoothness: 6000
     - metallic: 0.76
     m_Colors:
-    - Color_BB976349: {r: 1, g: 0.7956577, b: 0.14509803, a: 0}
+    - Color_BB976349: {r: 1, g: 0.14509803, b: 0.28566968, a: 0}
     - _Tint: {r: 1, g: 0, b: 0.009601116, a: 1}
     - tilling_albedo: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
