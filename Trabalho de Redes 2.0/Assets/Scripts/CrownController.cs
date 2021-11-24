@@ -19,7 +19,7 @@ public class CrownController : MonoBehaviour
     private void Awake() {
         instance = this;
     }
-    private void Update() {
+    private void LateUpdate() {
         if(isCollected && target != null && PhotonNetwork.IsMasterClient){
             transform.position = target.transform.position + offset;
         }
