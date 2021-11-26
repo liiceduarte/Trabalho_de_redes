@@ -9,6 +9,7 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] PhotonView photonView;
     [SerializeField] CinemachineVirtualCamera cin_vitualCamera;
     [SerializeField] int defaultWeapon = 0;
+    
     private int currentWeapon = 0;
     private string avatarName;
     private GameObject currentPlayer = null;
@@ -28,6 +29,9 @@ public class PlayerSpawner : MonoBehaviour
         currentPlayer.GetComponent<AttackHandler>().UpdateWeapon(NetworkController.instance.weaponId);
         cin_vitualCamera.Follow = currentPlayer.transform.GetChild(0).transform;
         photonView = currentPlayer.GetComponent<PhotonView>();
+        UpdateSkin();
+        UpdateWeapon();
+        UpdateHat();
     }
 
     public void DestroyPlayer(){
@@ -37,6 +41,14 @@ public class PlayerSpawner : MonoBehaviour
 
     public void UpdateWeapon(){
         currentPlayer.GetComponent<AttackHandler>().UpdateWeapon(NetworkController.instance.weaponId);
+    }
+
+    public void UpdateSkin(){
+        currentPlayer.GetComponent<NetworkPlayerController>().UpdateSkin(NetworkController.instance.skinId);
+    }
+
+    public void UpdateHat(){
+        currentPlayer.GetComponent<NetworkPlayerController>().UpdateHat(NetworkController.instance.hatId);
     }
 
     public void ChangePlayerAvatar(string avatarName){

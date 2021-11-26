@@ -13,6 +13,8 @@ public class NetworkController : MonoBehaviourPunCallbacks
     [SerializeField] private TMP_InputField nomeJogador, nomeSala;
     [SerializeField] public GameObject[] playerPrefabs;
     public int weaponId = 0;
+    public int skinId = 0;
+    public int hatId = -1;
 
     public int selectedPrefabID = 0;
     public int ocp;
