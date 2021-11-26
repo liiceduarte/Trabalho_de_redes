@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     private float pointTimer = 0;
     [SerializeField] float delayUntilReturnToLobby = 3;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         instance = this;
         playerPoints = new int[PhotonNetwork.CurrentRoom.PlayerCount];
@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
             pointTimer += Time.deltaTime;
 
             if(pointTimer >= delayBetweenPoints){
+                pointTimer = 0;
                 playerPoints[playerWithBall-1]++;
                 if(playerPoints[playerWithBall-1] >= scoreGoal && PhotonNetwork.IsMasterClient){
                     this.GetComponent<PhotonView>().RPC("PlayerWon",RpcTarget.All, playerWithBall);
@@ -43,8 +44,8 @@ public class GameController : MonoBehaviour
                     endGame = true;
                 }
 
-                this.GetComponent<PhotonView>().RPC("RPCUpdatePoints",RpcTarget.Others, playerPoints);
-                pointTimer -= delayBetweenPoints;
+                this.GetComponent<PhotonView>().RPC("RPCUpdatePoints",RpcTarget.All, playerPoints);
+                
             }
         }
     }
@@ -62,11 +63,23 @@ public class GameController : MonoBehaviour
         this.GetComponent<PhotonView>().RPC("BallDroped",RpcTarget.All);
     }
 
+    public int[] GetPlayerPoints(){
+        int[] scores = new int[playerPoints.Length];
+        for(int i = 0; i < playerPoints.Length; i++){
+            scores[i] = playerPoints[i];
+        }
+
+        return scores;
+    }
+
     [PunRPC]
     void RPCUpdatePoints(int[] playerPoints){
         if(!PhotonNetwork.IsMasterClient){
             this.playerPoints = playerPoints;
         }
+
+        if(HUDController.instance != null)
+            HUDController.instance.UpdateScores();
     }
 
     [PunRPC]
