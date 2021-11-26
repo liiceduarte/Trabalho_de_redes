@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hats
+  m_Name: ITENS
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ShaderKeywords: DR_OUTLINE_ON DR_RIM_ON DR_SPECULAR_ON _CELPRIMARYMODE_SINGLE
     _TEXTUREBLENDINGMODE_MULTIPLY _UNITYSHADOWMODE_MULTIPLY
@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: ba6d00285c1574045ac25c40e307640d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8484b6add7ec7f542a9a8a97315fa999, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 1, y: 1}
     - _BumpMap:
@@ -149,7 +149,7 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineDepthOffset: 0
     - _OutlineEnabled: 1
-    - _OutlineScale: 1
+    - _OutlineScale: 1.01
     - _OutlineWidth: 1
     - _OverrideLightmapDir: 0
     - _OverrideShadows: 1
