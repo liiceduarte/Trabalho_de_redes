@@ -97,6 +97,7 @@ public class GameController : MonoBehaviour
     void PlayerWon(int playerId){
         endGame = true;
         Debug.Log(PhotonNetwork.CurrentRoom.GetPlayer(playerId).NickName + " Won!");
+        HUDController.instance.ShowEngame(playerId);
 
         if(AttackHandler.instance.gameObject.GetComponent<PhotonView>().Owner.ActorNumber == playerId){
             AttackHandler.instance.Victory();

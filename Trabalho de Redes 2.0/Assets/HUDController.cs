@@ -13,6 +13,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] TMP_Text bronzeNickname;
     [SerializeField] TMP_Text bronzeScore;
     [SerializeField] TMP_Text yourScore;
+    [SerializeField] TMP_Text tmp_text_VictoryPlayer;
+    [SerializeField] GameObject gameEndingPainel;
 
     public static HUDController instance;
 
@@ -67,5 +69,10 @@ public class HUDController : MonoBehaviour
         bronzeScore.text = scores[bronzeIndex].ToString();
 
         yourScore.text = scores[NetworkController.instance.ocp-1].ToString();
+    }
+
+    public void ShowEngame(int playerId){
+        tmp_text_VictoryPlayer.text = PhotonNetwork.CurrentRoom.GetPlayer(playerId).NickName;
+        gameEndingPainel.SetActive(true);
     }
 }
