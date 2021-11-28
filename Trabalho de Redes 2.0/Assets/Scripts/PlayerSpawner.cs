@@ -29,6 +29,7 @@ public class PlayerSpawner : MonoBehaviour
         currentPlayer.GetComponent<AttackHandler>().UpdateWeapon(NetworkController.instance.weaponId);
         cin_vitualCamera.Follow = currentPlayer.transform.GetChild(0).transform;
         photonView = currentPlayer.GetComponent<PhotonView>();
+        currentPlayer.GetComponent<NetworkPlayerController>().UpdateNick(PhotonNetwork.LocalPlayer.NickName);
         UpdateSkin();
         UpdateWeapon();
         UpdateHat();

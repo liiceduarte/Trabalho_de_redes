@@ -3209,7 +3209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f315e2c07e7be4e923ee607feec69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponId: 5
+  weaponId: 1
   spawner: {fileID: 1436176966}
 --- !u!1001 &934494595
 PrefabInstance:
@@ -4647,7 +4647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f315e2c07e7be4e923ee607feec69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponId: 1
+  weaponId: 4
   spawner: {fileID: 1436176966}
 --- !u!65 &1337007623
 BoxCollider:
