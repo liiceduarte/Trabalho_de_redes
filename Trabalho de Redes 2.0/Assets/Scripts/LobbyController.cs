@@ -42,7 +42,7 @@ public class LobbyController : MonoBehaviour
     }
 
     private void CheckPlayersReady(){
-        roomReady = players.Count == PhotonNetwork.CurrentRoom.PlayerCount;
+        roomReady = players.Count == PhotonNetwork.CurrentRoom.PlayerCount && PhotonNetwork.CurrentRoom.PlayerCount >= 3;
         beginTimer = timeUntilBegin;
     }
     
