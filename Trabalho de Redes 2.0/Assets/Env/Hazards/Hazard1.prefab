@@ -781,6 +781,7 @@ GameObject:
   - component: {fileID: 345041047029738171}
   - component: {fileID: 3363449820741166484}
   - component: {fileID: 2165708320203946098}
+  - component: {fileID: 604705260}
   m_Layer: 0
   m_Name: HEAD HAMMER
   m_TagString: Untagged
@@ -881,6 +882,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: -0.028, y: 0.019858055, z: 0.019858053}
   m_Center: {x: 0.000000014901161, y: 0, z: 0.0000000055879354}
+--- !u!114 &604705260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840385963806945204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f905405266b92242913377eefd827a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 40
+  applyForce: 1
+  doHit: 1
 --- !u!1 &8997549986318089876
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +942,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2401207528929076280}
   - component: {fileID: 5567959894799334884}
+  - component: {fileID: 111328312}
+  - component: {fileID: 398912950}
+  - component: {fileID: 2113509289}
   m_Layer: 0
   m_Name: hammer pivot
   m_TagString: Untagged
@@ -967,6 +986,48 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &111328312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042812312768816841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20277992334dbfd48ae1989d489b33a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 5567959894799334884}
+  offset: 0
+--- !u!114 &398912950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042812312768816841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20277992334dbfd48ae1989d489b33a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 5567959894799334884}
+  offset: 0.1
+--- !u!114 &2113509289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042812312768816841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20277992334dbfd48ae1989d489b33a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 5567959894799334884}
+  offset: 0.3
 --- !u!1001 &1524230365973883102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1033,7 +1094,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 64ca0637a6571a04a9a44bd85c3e6b24, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 16e89669da7356f45a6b2be7c7add355, type: 2}
+      objectReference: {fileID: 2100000, guid: 14551b2b109ec644792fe558fbc3761e, type: 2}
     - target: {fileID: 919132149155446097, guid: 64ca0637a6571a04a9a44bd85c3e6b24, type: 3}
       propertyPath: m_Name
       value: cylinder
@@ -1264,6 +1325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c3482fcf75bc8f46b0dede2269e4bf1, type: 3}
+--- !u!1 &3453153971014580385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 8c3482fcf75bc8f46b0dede2269e4bf1, type: 3}
+  m_PrefabInstance: {fileID: 6566402125790673220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2591531827856947540 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 8c3482fcf75bc8f46b0dede2269e4bf1, type: 3}
@@ -1277,10 +1343,5 @@ GameObject:
 --- !u!4 &6677204974652497583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c3482fcf75bc8f46b0dede2269e4bf1, type: 3}
-  m_PrefabInstance: {fileID: 6566402125790673220}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3453153971014580385 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 8c3482fcf75bc8f46b0dede2269e4bf1, type: 3}
   m_PrefabInstance: {fileID: 6566402125790673220}
   m_PrefabAsset: {fileID: 0}
