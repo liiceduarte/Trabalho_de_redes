@@ -123,6 +123,62 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &123175230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123175232}
+  - component: {fileID: 123175231}
+  m_Layer: 0
+  m_Name: TL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &123175231
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123175230}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 08e8fdc7f4668e740be9eda293c6a2c9, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 4580182101700810926, guid: 08e8fdc7f4668e740be9eda293c6a2c9, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -29069934195575045, guid: 08e8fdc7f4668e740be9eda293c6a2c9, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 306415603112692830, guid: 08e8fdc7f4668e740be9eda293c6a2c9, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4332734252903189882, guid: 08e8fdc7f4668e740be9eda293c6a2c9, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &123175232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123175230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208578364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1160,8 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 7054391935517341822, guid: 52376f4ec4e19974197c39be86e2a26d, type: 3}
   weaponId: 0
+  skinId: 0
+  hatId: -1
   selectedPrefabID: 0
   ocp: 0
 --- !u!4 &726558710
@@ -3045,7 +3103,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000023365, y: -402}
+  m_AnchoredPosition: {x: 24.2, y: -402}
   m_SizeDelta: {x: 305.5438, y: 88.4932}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912675987
@@ -3180,7 +3238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -4}
+  m_AnchoredPosition: {x: 6, y: -4}
   m_SizeDelta: {x: 980, y: 892.492}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957606664
